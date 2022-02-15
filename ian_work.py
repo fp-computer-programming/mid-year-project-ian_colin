@@ -1,25 +1,25 @@
 # Author: IBN (AMDG) 2/10/2022
 
-player = []
-cpu = []
 import random
 from time import sleep
 deck = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14]
 name = input("What is your name? ")
+
 print("Hello {0}, Let's play War!".format(name)); sleep(1.5)
 print("I will shuffle the deck."); sleep(1.5)
 random.shuffle(deck)
-print("Shufling..."); sleep(3)
+print("Shuffling..."); sleep(3)
 
-# Split next time
-for i, v in enumerate(deck):
-    if i < 26:
-        player.append(deck[v])
-    elif i >= 26:
-        cpu.append(deck[v])
+player = deck[0:int(len(deck)/2)]
+cpu = deck[int(len(deck)/2):len(deck)]
+player_len = len(player)
+cpu_len = len(cpu)
 print(player)
 print(cpu)
+print("You Have: {0} cards.".format(player_len)); sleep
+print("I Have: {0} cards.".format(cpu_len)); sleep(1.5)
 print("The deck is shuffled. Let's Play!"); sleep(2)
+
 while player != [] or cpu != []:
     if player[0] == cpu[0]:
         print("WAR"); sleep(2)
@@ -32,50 +32,34 @@ while player != [] or cpu != []:
                 print("drawing even more cards"); sleep(2)
             if player[8] > cpu[8]:
                 print("victory {0} > {1}".format(player[8], cpu[8])); sleep(2)
-                for i, v in enumerate(player):
-                    if i < 8:
-                        player.append(player[v])
-                for i, v in enumerate(cpu):
-                    if i < 8:
-                        player.append(cpu[v])
+                player.extend(player[0:9])
+                player.extend(cpu[0:9])
                 del player[:8]
                 del cpu[:8]
                 print(player)
                 print(cpu)
             if player[8] < cpu[8]:
                 print("defeat {0} < {1}".format(player[8], cpu[8])); sleep(2)
-                for i, v in enumerate(player):
-                    if i < 8:
-                        cpu.append(player[v])
-                for i, v in enumerate(cpu):
-                    if i < 8:
-                        cpu.append(cpu[v])
-                del player[:8]
-                del cpu[:8]
+                cpu.extend(player[0:9])
+                cpu.extend(cpu[0:9])
+                del player[:9]
+                del cpu[:9]
                 print(player)
                 print(cpu)
         if player[4] > cpu[4]:
             print("victory {0} > {1}".format(player[4], cpu[4])); sleep(2)
-            for i, v in enumerate(player):
-                if i < 4:
-                    player.append(player[v])
-            for i, v in enumerate(cpu):
-                if i < 4:
-                    player.append(cpu[v])
-            del player[:4]
-            del cpu[:4]
+            player.extend(player[0:5])
+            player.extend(cpu[0:5])
+            del player[:5]
+            del cpu[:5]
             print(player)
             print(cpu)
         if player[4] < cpu[4]:
             print("defeat {0} < {1}".format(player[4], cpu[4])); sleep(2)
-            for i, v in enumerate(player):
-                if i < 4:
-                    cpu.append(player[v])
-            for i, v in enumerate(cpu):
-                if i < 4:
-                    cpu.append(cpu[v])
-            del player[:4]
-            del cpu[:4]
+            cpu.extend(cpu[0:5])
+            cpu.extend(player[0:5])
+            del player[:5]
+            del cpu[:5]
             print(player)
             print(cpu)
 
