@@ -5,7 +5,7 @@ player = [2,13,14,5,4]
 cpu = [2,2,9,10,2]
 
 if player[0] == cpu[0]:
-    print("WAR")
+    print("WAR"); sleep(2)
     print("drawing three additional cards")
 
     if player[4] > cpu[4]:
