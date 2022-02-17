@@ -38,7 +38,7 @@ if player[0] == cpu[0]:
         del player[:4]
         del cpu[:4]
 
-        continue
+#        continue
 
     if player[4] < cpu[4]:
         print("defeat {0} < {1}".format(player[4], cpu[4])); sleep(2)
@@ -50,7 +50,7 @@ if player[0] == cpu[0]:
         del player[:4]
         del cpu[:4]
 
-        continue
+#        continue
 
     if player[4] == cpu[4]:
         print("WAR"); sleep(2)
@@ -66,7 +66,7 @@ if player[0] == cpu[0]:
             del player[:8]
             del cpu[:8]
 
-            continue
+ #           continue
             
         if player[8] < cpu[8]:
             print("defeat {0} < {1}".format(player[8], cpu[8])); sleep(2)
@@ -78,7 +78,7 @@ if player[0] == cpu[0]:
             del player[:8]
             del cpu[:8]
 
-            continue
+#            continue
 
         if player[8] == cpu[8]:
             print("WAR"); sleep(2)
@@ -95,7 +95,7 @@ if player[0] == cpu[0]:
                 del player[:12]
                 del cpu[:12]
 
-                continue
+#                continue
 
             if player[12] > cpu[12]:
                 print("victory {0} > {1}".format(player[12], cpu[12])); sleep(2)
@@ -107,7 +107,7 @@ if player[0] == cpu[0]:
                 del player[:12]
                 del cpu[:12]
 
-                continue
+ #               continue
                 
             if player[12] == cpu[12]:
                 print("WAR"); sleep(2)
@@ -123,7 +123,7 @@ if player[0] == cpu[0]:
                     del player[:16]
                     del cpu[:16]
 
-                    continue
+ #                   continue
 
                 if player[16] > cpu[16]:
                     print("victory {0} > {1}".format(player[16], cpu[16])); sleep(2)
@@ -135,7 +135,7 @@ if player[0] == cpu[0]:
                     del player[:16]
                     del cpu[:16]
 
-                    continue
+ #                   continue
                
                 if player[16] == cpu[16]:
                     print("WAR"); sleep(2)
@@ -175,7 +175,7 @@ if player[0] == cpu[0]:
                             del player[:24]
                             del cpu[:24]
 
-                            continue
+ #                           continue
 
                         if player [24] > cpu[24]:
                             print("victory {0} > {1}".format(player[24], cpu[24])); sleep(2)
@@ -187,7 +187,7 @@ if player[0] == cpu[0]:
                             del player[:24]
                             del cpu[:24]
 
-                            continue
+ #                           continue
                 
                         if player[24] == cpu[24]:
                             print("WAR"); sleep(2)
@@ -203,7 +203,7 @@ if player[0] == cpu[0]:
                                 del player[:26]
                                 del cpu[:26]
 
-                                continue
+ #                               continue
 
                             if player[26] > cpu[26]:
                                 print("victory {0} > {1}".format(player[26], cpu[26])); sleep(2)
@@ -215,11 +215,11 @@ if player[0] == cpu[0]:
                                 del player[:26]
                                 del cpu[:26]
 
-                                continue
+  #                              continue
 
                             if player[26] == cpu[26]:
                                 print("woops! we ran out of cards, let's just skip that then")
-                                continue
+ #                               continue
                 
 elif player[0] > cpu[0]:
     print("victory {0} > {1}".format(player[0], cpu[0]))
