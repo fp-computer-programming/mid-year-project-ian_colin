@@ -2,38 +2,39 @@
 
 import random
 from time import sleep
+# the deck (aces are considered 14 for this version)
 deck = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14]
 name = input("What is your name? ")
 
+# shuffleing the deck
 print("Hello {0}, Let's play War!".format(name)); sleep(1.5)
 print("I will shuffle the deck."); sleep(1.5)
 random.shuffle(deck)
 print("Shuffling..."); sleep(3)
 
+# distributing the deck
 player = deck[0:int(len(deck)/2)]
 cpu = deck[int(len(deck)/2):len(deck)]
 player_len = len(player)
 cpu_len = len(cpu)
-print(player)
-print(cpu)
+
+
 print("You Have: {0} cards.".format(player_len)); sleep(1.5)
 print("I Have: {0} cards.".format(cpu_len)); sleep(1.5)
 print("The deck is shuffled. Let's Play!"); sleep(2)
-
+# game actually starts
 try:
     while len(player) != 0 or len(cpu) != 0:
-        if player[0] > cpu[0]:
+        if player[0] > cpu[0]: # win for the player
             print("victory {0} > {1}".format(player[0], cpu[0]))
-            player.append(player[0])
+            player.append(player[0]) # basis on how we put cards back into the deck  
             player.append(cpu[0])
             del player[0]
             del cpu[0]
             print(("You have {0} cards.").format(len(player)))
             print(('I have {0} cards.').format(len(cpu))); sleep(2)
-            print(player)
-            print(cpu)
         
-        if player[0] < cpu[0]:
+        if player[0] < cpu[0]: # win for the computer
             print("loss {0} < {1}".format(player[0], cpu[0]))
             cpu.append(cpu[0])
             cpu.append(player[0])
@@ -41,8 +42,6 @@ try:
             del player[0]
             print(("You have {0} cards.").format(len(player)))
             print(('I have {0} cards.').format(len(cpu))); sleep(2)
-            print(player)
-            print(cpu)
 
         if len(player) < 5 or len(cpu) < 5:
             print("DANGER: Less than 5 cards!"); sleep(2)
@@ -57,8 +56,6 @@ try:
                     del cpu[:4]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
                 elif player[3] < cpu[3]:
                     print("defeat {0} < {1}".format(player[3], cpu[3]))
@@ -68,8 +65,6 @@ try:
                     del cpu[:4]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
                 elif player[2] > cpu[2]:
                     print("victory {0} > {1}".format(player[2], cpu[2]))
@@ -79,8 +74,6 @@ try:
                     del cpu[:3]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
                 elif player[2] < cpu[2]:
                     print("defeat {0} < {1}".format(player[2], cpu[2]))
@@ -90,8 +83,6 @@ try:
                     del cpu[:3]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
                 elif player[1] > cpu[1]:
                     print("victory {0} > {1}".format(player[1], cpu[1]))
@@ -101,8 +92,6 @@ try:
                     del cpu[:2]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
                 elif player[1] < cpu[1]:
                     print("defeat {0} < {1}".format(player[1], cpu[1]))
@@ -112,8 +101,6 @@ try:
                     del cpu[:2]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
             elif player[0] > cpu[0]:
                 print("victory {0} > {1}".format(player[0], cpu[0]))
@@ -122,9 +109,7 @@ try:
                 del player[0]
                 del cpu[0]
                 print(("You have {0} cards.").format(len(player)))
-                print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                print(player)
-                print(cpu)
+                print(('I have {0} cards.').format(len(cpu))); sleep(2)               
                 continue
             elif player[0] < cpu[0]:
                 print("loss {0} < {1}".format(player[0], cpu[0]))
@@ -134,10 +119,9 @@ try:
                 del player[0]
                 print(("You have {0} cards.").format(len(player)))
                 print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                print(player)
-                print(cpu)
                 continue
 
+        # War statements begin
         if player[0] == cpu[0]:
             print("WAR"); sleep(2)
             print("drawing three additional cards"); sleep(2)
@@ -250,8 +234,6 @@ try:
                     del cpu[:9]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
                 if player[8] < cpu[8]:
                     print("defeat {0} < {1}".format(player[8], cpu[8]))
@@ -261,8 +243,6 @@ try:
                     del cpu[:9]
                     print(("You have {0} cards.").format(len(player)))
                     print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                    print(player)
-                    print(cpu)
                     continue
             if player[4] > cpu[4]:
                 print("victory {0} > {1}".format(player[4], cpu[4]))
@@ -272,8 +252,6 @@ try:
                 del cpu[:5]
                 print(("You have {0} cards.").format(len(player)))
                 print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                print(player)
-                print(cpu)
                 continue
             if player[4] < cpu[4]:
                 print("defeat {0} < {1}".format(player[4], cpu[4]))
@@ -283,10 +261,9 @@ try:
                 del cpu[:5]
                 print(("You have {0} cards.").format(len(player)))
                 print(('I have {0} cards.').format(len(cpu))); sleep(2)
-                print(player)
-                print(cpu)
                 continue
-except IndexError:
+            
+except IndexError: # used the index error from running to end game
     if len(player) == 0:
         print("I win! You lose, {0}!".format(name)); sleep(1.5)
     if len(cpu) == 0:
